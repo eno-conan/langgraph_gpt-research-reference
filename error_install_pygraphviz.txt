@@ -1,0 +1,76 @@
+$ pip install pygraphviz
+Collecting pygraphviz
+  Downloading pygraphviz-1.12.tar.gz (104 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.9/104.9 kB 1.5 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: pygraphviz
+  Building wheel for pygraphviz (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+
+  × Building wheel for pygraphviz (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [55 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build
+      creating build\lib.win-amd64-cpython-312
+      creating build\lib.win-amd64-cpython-312\pygraphviz
+      copying pygraphviz\agraph.py -> build\lib.win-amd64-cpython-312\pygraphviz
+      copying pygraphviz\graphviz.py -> build\lib.win-amd64-cpython-312\pygraphviz
+      copying pygraphviz\scraper.py -> build\lib.win-amd64-cpython-312\pygraphviz
+      copying pygraphviz\testing.py -> build\lib.win-amd64-cpython-312\pygraphviz
+      copying pygraphviz\__init__.py -> build\lib.win-amd64-cpython-312\pygraphviz
+      creating build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_attribute_defaults.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_clear.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_close.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_drawing.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_edge_attributes.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_graph.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_html.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_layout.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_node_attributes.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_readwrite.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_repr_mimebundle.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_scraper.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_string.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_subgraph.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\test_unicode.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      copying pygraphviz\tests\__init__.py -> build\lib.win-amd64-cpython-312\pygraphviz\tests
+      running egg_info
+      writing pygraphviz.egg-info\PKG-INFO
+      writing dependency_links to pygraphviz.egg-info\dependency_links.txt
+      writing top-level names to pygraphviz.egg-info\top_level.txt
+      reading manifest file 'pygraphviz.egg-info\SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      warning: no files found matching '*.png' under directory 'doc'
+      warning: no files found matching '*.html' under directory 'doc'
+      warning: no files found matching '*.txt' under directory 'doc'
+      warning: no files found matching '*.css' under directory 'doc'
+      warning: no previously-included files matching '*~' found anywhere in distribution
+      warning: no previously-included files matching '*.pyc' found anywhere in distribution
+      warning: no previously-included files matching '.svn' found anywhere in distribution
+      no previously-included directories found matching 'doc\build'
+      adding license file 'LICENSE'
+      writing manifest file 'pygraphviz.egg-info\SOURCES.txt'
+      copying pygraphviz\graphviz.i -> build\lib.win-amd64-cpython-312\pygraphviz
+      copying pygraphviz\graphviz_wrap.c -> build\lib.win-amd64-cpython-312\pygraphviz
+      running build_ext
+      building 'pygraphviz._graphviz' extension
+      creating build\temp.win-amd64-cpython-312
+      creating build\temp.win-amd64-cpython-312\Release
+      creating build\temp.win-amd64-cpython-312\Release\pygraphviz
+      "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX86\x64\cl.exe" /c /nologo /O2 /W3 /GL /DNDEBUG /MD -DSWIG_PYTHON_STRICT_BYTE_CHAR -DGVDLL -IC:\Users\Administrator\Documents\python\AI\gpt-newspaper\gpt-newspaper\include -IC:\Users\Administrator\AppData\Local\Programs\Python\Python312\include -IC:\Users\Administrator\AppData\Local\Programs\Python\Python312\Include "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\um" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\shared" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\winrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.19041.0\\cppwinrt" /Tcpygraphviz/graphviz_wrap.c /Fobuild\temp.win-amd64-cpython-312\Release\pygraphviz/graphviz_wrap.obj
+      graphviz_wrap.c
+      pygraphviz/graphviz_wrap.c(3020): fatal error C1083: include ファイルを開けません。'graphviz/cgraph.h':No such file or directory 
+      error: command 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\bin\\HostX86\\x64\\cl.exe' failed with exit code 2
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for pygraphviz
+Failed to build pygraphviz
+ERROR: Could not build wheels for pygraphviz, which is required to install pyproject.toml-based projects

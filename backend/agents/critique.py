@@ -24,10 +24,13 @@ class CritiqueAgent:
         }]
 
         lc_messages = convert_openai_messages(prompt)
-        response = ChatOpenAI(model='gpt-4', max_retries=1).invoke(lc_messages).content
+        response = ChatOpenAI(model='gpt-3.5-turbo-0125', max_retries=1).invoke(lc_messages).content
+        # response = ChatOpenAI(model='gpt-4', max_retries=1).invoke(lc_messages).content
         if response == 'None':
+            # graph上で、writerに戻る
             return {'critique': None}
         else:
+            # graph上で、designerに進む
             print(f"For article: {article['title']}")
             print(f"Feedback: {response}\n")
             return {'critique': response, 'message': None}

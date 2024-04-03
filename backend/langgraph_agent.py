@@ -2,6 +2,8 @@ import os
 import time
 from concurrent.futures import ThreadPoolExecutor
 from langgraph.graph import Graph
+# 画像
+from IPython.display import Image
 
 # Import agent classes
 from .agents import SearchAgent, CuratorAgent, WriterAgent, DesignerAgent, EditorAgent, PublisherAgent, CritiqueAgent
@@ -40,16 +42,24 @@ class MasterAgent:
         # workflow.add_edge('curate', 'write')
         # workflow.add_edge('write', 'critique')
         # writeからcritiqueについて、条件を満たす（accept）なら、critique
+        # https://blog.langchain.dev/reflection-agents/
         # workflow.add_conditional_edges(start_key='critique',
         #                                condition=lambda x: "accept" if x['critique'] is None else "revise",
         #                                conditional_edge_mapping={"accept": "design", "revise": "write"})
 
-        # set up start and end nodes（スタートとゴールの決定）
+        # # set up start and end nodes（スタートとゴールの決定）
         workflow.set_entry_point("search")
+        # workflow.set_finish_point("design")
         workflow.set_finish_point("curate")
 
         # compile the graph
         chain = workflow.compile()
+        
+        # https://zenn.dev/wakachikooo/articles/1934ec3006e9bf
+        # https://github.com/langchain-ai/langgraph/issues/69
+        # https://github.com/langchain-ai/langgraph/blob/main/examples/rag/langgraph_crag.ipynb?ref=blog.langchain.dev
+        # Colabじゃないとだめ？
+        Image(chain.get_graph().draw_png())
 
         # Execute the graph for each query in parallel
         with ThreadPoolExecutor() as executor:

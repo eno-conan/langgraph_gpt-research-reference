@@ -9,9 +9,9 @@ def index():
 
 @backend_app.route('/generate_newspaper', methods=['POST'])
 def generate_newspaper():
-    data = request.json
-    print(data) # {'topics': ['Baseball'], 'layout': 'layout_1.html'}
-    # data = {'topics': ['Baseball'], 'layout': 'layout_1.html'}
+    # data = request.json
+    # print(data) # {'topics': ['Baseball'], 'layout': 'layout_1.html'}
+    data = {'topics': ['Baseball'], 'layout': 'layout_1.html'}
     master_agent = MasterAgent()
     # newspaper = master_agent.run(data["topics"])
     newspaper = master_agent.run(data["topics"], data["layout"])

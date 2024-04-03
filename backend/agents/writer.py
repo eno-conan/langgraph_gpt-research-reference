@@ -83,7 +83,8 @@ class WriterAgent:
             "response_format": {"type": "json_object"}
         }
 
-        response = ChatOpenAI(model='gpt-4-0125-preview', max_retries=1, model_kwargs=optional_params).invoke(lc_messages).content
+        response = ChatOpenAI(model='gpt-3.5-turbo-0125', max_retries=1, model_kwargs=optional_params).invoke(lc_messages).content
+        # response = ChatOpenAI(model='gpt-4-0125-preview', max_retries=1, model_kwargs=optional_params).invoke(lc_messages).content
         response = json.loads(response)
         print(f"For article: {article['title']}")
         print(f"Writer Revision Message: {response['message']}\n")

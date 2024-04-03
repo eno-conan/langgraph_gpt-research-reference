@@ -1,6 +1,8 @@
 # GPT Newspaper
 https://medium.com/@rotem5707/discover-the-power-of-langgraph-my-adventure-in-building-gpt-newspaper-f59c7fbcf039
 
+https://github.com/rotemweiss57/gpt-newspaper
+
 Welcome to the GPT Newspaper project, an innovative autonomous agent designed to create personalized newspapers tailored to user preferences. GPT Newspaper revolutionizes the way we consume news by leveraging the power of AI to curate, write, design, and edit content based on individual tastes and interests.
 
 ## 🔍 Overview
