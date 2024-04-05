@@ -45,6 +45,7 @@ class MasterAgent:
         # https://blog.langchain.dev/reflection-agents/
         # workflow.add_conditional_edges(start_key='critique',
         #                                condition=lambda x: "accept" if x['critique'] is None else "revise",
+        #                                # acceptなら、どのnodeに、reviseならどのnodeに進むか
         #                                conditional_edge_mapping={"accept": "design", "revise": "write"})
 
         # # set up start and end nodes（スタートとゴールの決定）
@@ -59,7 +60,8 @@ class MasterAgent:
         # https://github.com/langchain-ai/langgraph/issues/69
         # https://github.com/langchain-ai/langgraph/blob/main/examples/rag/langgraph_crag.ipynb?ref=blog.langchain.dev
         # Colabじゃないとだめ？
-        Image(chain.get_graph().draw_png())
+        # Image(chain.get_graph().draw_png())
+        chain.get_graph().print_ascii()
 
         # Execute the graph for each query in parallel
         with ThreadPoolExecutor() as executor:

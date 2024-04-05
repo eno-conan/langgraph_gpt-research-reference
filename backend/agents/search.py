@@ -11,8 +11,15 @@ class SearchAgent:
         pass
 
     def search_tavily(self, query: str):
-        results = tavily_client.search(query=query, topic="news", max_results=5, include_images=True)
-        sources = results["results"]
+        #  https://docs.tavily.com/docs/tavily-api/python-sdk#usage-%EF%B8%8F
+        # https://docs.tavily.com/docs/tavily-api/Topics/news
+        results = tavily_client.search(query=query, \
+                                       topic="news", \
+                                       max_results=10, \
+                                       search_depth="advanced", \
+                                       include_images=True)
+        sources = results['results']
+        print(sources)
         try:
             image = results["images"][0]
         except:
