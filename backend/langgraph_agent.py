@@ -20,7 +20,7 @@ class MasterAgent:
         # Initialize agents
         search_agent = SearchAgent()
         curator_agent = CuratorAgent()
-        # writer_agent = WriterAgent()
+        writer_agent = WriterAgent()
         # critique_agent = CritiqueAgent()
         # designer_agent = DesignerAgent(self.output_dir)
         # editor_agent = EditorAgent(layout)
@@ -32,14 +32,14 @@ class MasterAgent:
         # Add nodes for each agent
         workflow.add_node("search", search_agent.run)
         workflow.add_node("curate", curator_agent.run)
-        # workflow.add_node("write", writer_agent.run)
+        workflow.add_node("write", writer_agent.run)
         # workflow.add_node("critique", critique_agent.run)
         # workflow.add_node("design", designer_agent.run)
 
         # Set up edges
         # searchからcurateに向けた矢印
         workflow.add_edge('search', 'curate')
-        # workflow.add_edge('curate', 'write')
+        workflow.add_edge('curate', 'write')
         # workflow.add_edge('write', 'critique')
         # writeからcritiqueについて、条件を満たす（accept）なら、critique
         # https://blog.langchain.dev/reflection-agents/
@@ -50,18 +50,20 @@ class MasterAgent:
 
         # # set up start and end nodes（スタートとゴールの決定）
         workflow.set_entry_point("search")
+        # workflow.set_finish_point("curate")
+        workflow.set_finish_point("write")
         # workflow.set_finish_point("design")
-        workflow.set_finish_point("curate")
 
         # compile the graph
         chain = workflow.compile()
         
+        # graph図示
+        chain.get_graph().print_ascii()
         # https://zenn.dev/wakachikooo/articles/1934ec3006e9bf
         # https://github.com/langchain-ai/langgraph/issues/69
         # https://github.com/langchain-ai/langgraph/blob/main/examples/rag/langgraph_crag.ipynb?ref=blog.langchain.dev
         # Colabじゃないとだめ？
         # Image(chain.get_graph().draw_png())
-        chain.get_graph().print_ascii()
 
         # Execute the graph for each query in parallel
         with ThreadPoolExecutor() as executor:

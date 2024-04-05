@@ -59,7 +59,12 @@ class WriterAgent:
             "response_format": {"type": "json_object"}
         }
 
-        response = ChatOpenAI(model='gpt-4-0125-preview', max_retries=1, model_kwargs=optional_params).invoke(lc_messages).content
+        response = ChatOpenAI(model='gpt-3.5-turbo-0125', 
+                              max_retries=1, 
+                              model_kwargs=optional_params).invoke(lc_messages).content
+        # response = ChatOpenAI(model='gpt-4-0125-preview', 
+        #                       max_retries=1, 
+        #                       model_kwargs=optional_params).invoke(lc_messages).content
         return json.loads(response)
 
     def revise(self, article: dict):
@@ -83,7 +88,9 @@ class WriterAgent:
             "response_format": {"type": "json_object"}
         }
 
-        response = ChatOpenAI(model='gpt-3.5-turbo-0125', max_retries=1, model_kwargs=optional_params).invoke(lc_messages).content
+        response = ChatOpenAI(model='gpt-3.5-turbo-0125', 
+                              max_retries=1, 
+                              model_kwargs=optional_params).invoke(lc_messages).content
         # response = ChatOpenAI(model='gpt-4-0125-preview', max_retries=1, model_kwargs=optional_params).invoke(lc_messages).content
         response = json.loads(response)
         print(f"For article: {article['title']}")
@@ -91,9 +98,10 @@ class WriterAgent:
         return response
 
     def run(self, article: dict):
-        critique = article.get("critique")
-        if critique is not None:
-            article.update(self.revise(article))
-        else:
-            article.update(self.writer(article["query"], article["sources"]))
+        # critique = article.get("critique")
+        # if critique is not None:
+        #     article.update(self.revise(article))
+        # else:
+            # article.update(self.writer(article["query"], article["sources"]))
+        article.update(self.writer(article["query"], article["sources"]))
         return article

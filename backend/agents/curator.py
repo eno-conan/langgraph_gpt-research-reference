@@ -17,24 +17,21 @@ class CuratorAgent:
         """
         prompt = [{
             "role": "system",
-            "content": "You are a personal newspaper editor. Your sole purpose is to choose 5 most relevant article "
+            "content": "You are a personal newspaper editor. Your sole purpose is to choose 3 most relevant article "
                        "for me to read from a list of articles.\n "
         }, {
             "role": "user",
             "content": f"Today's date is {datetime.now().strftime('%d/%m/%Y')}\n."
                        f"Topic or Query: {query}\n"
-                       f"Your task is to return the 5 most relevant articles for me to read for the provided topic or "
                        f"query\n "
                        f"Here is a list of articles:\n"
                        f"{sources}\n"
-                       f"Please return nothing but a list of the strings of the URLs in this structure: ['url1',"
-                       f"'url2','url3','url4','url5'].\n "
         }]
-        
         '''
         '''
 
         lc_messages = convert_openai_messages(prompt)
+        print(lc_messages)
         # response = ChatOpenAI(model='gpt-4-0125-preview', max_retries=1).invoke(lc_messages).content
         response = ChatOpenAI(model='gpt-3.5-turbo-0125', max_retries=1).invoke(lc_messages).content
         chosen_sources = response
